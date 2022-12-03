@@ -60,7 +60,7 @@ impl RPS {
 }
 
 pub fn day2() {
-    let plays = fs::read_to_string("data/day2.txt").unwrap().split("\n")
+    let plays = fs::read_to_string("data/day2.txt").unwrap().split('\n')
         .map(|s| {
             let (x,y) = s.split_once(' ').unwrap();
             (String::from(x), String::from(y))
