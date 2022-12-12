@@ -1,58 +1,7 @@
-use std::cmp::{max, Ordering};
+use std::cmp::max;
 use std::fs;
 use itertools::Itertools;
-use crate::day8::Direction::{Down, Left, Right, Up};
-
-#[derive(Copy, Clone, Debug)]
-struct Pos {
-    row: usize,
-    col: usize
-}
-
-#[derive(Copy, Clone, Debug)]
-enum Direction {
-    Up,
-    Down,
-    Left,
-    Right
-}
-
-impl Direction {
-    fn all_directions() -> [Direction; 4] {
-        [Up, Down, Left, Right]
-    }
-}
-
-impl Pos {
-    fn update(self, direction: Direction, row_bound: usize, col_bound: usize) -> Option<Self> {
-        match direction {
-            Direction::Up => {
-                if self.row == 0 {
-                    None
-                } else {
-                    Some(Pos {row: self.row - 1, col: self.col})
-                }
-            },
-            Direction::Down => {
-                if self.row == row_bound - 1 {
-                    None
-                } else {
-                    Some(Pos {row: self.row + 1, col: self.col})
-                }
-            },
-            Direction::Left => if self.col == 0 {
-                None
-            } else {
-                Some(Pos {row: self.row, col: self.col - 1})
-            },
-            Direction::Right => {
-                if self.col == col_bound - 1 {None} else {
-                    Some(Pos {row: self.row, col: self.col + 1})
-                }
-            },
-        }
-    }
-}
+use crate::Util::{Direction, Pos};
 
 fn viewing_distance(data: &Vec<Vec<u32>>, direction: Direction, start: Pos) -> usize {
     let mut count = 0;

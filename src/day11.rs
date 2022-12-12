@@ -1,6 +1,5 @@
 use std::collections::VecDeque;
 use std::fs;
-use std::ops::{Add, Mul};
 use itertools::Itertools;
 
 struct Monkey<F> where F: Fn(u64) -> u64 {

@@ -31,9 +31,9 @@ pub fn day10() {
             println!()
         }
         if x.abs_diff(draw_pos) <= 1 {
-            print!("#");
+            print!("█");
         } else {
-            print!(".")
+            print!(" ")
         }
         if counting_rounds.contains(&round) {
             score += round * x;
