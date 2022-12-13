@@ -26,7 +26,7 @@ mod day25;
 mod Util;
 
 fn main() {
-    let day = 12;
+    let day = 13;
     match day {
         1 => day1::day1(),
         2 => day2::day2(),
